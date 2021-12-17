@@ -1,10 +1,8 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React from "react";
+import { Text } from "react-native";
 
-function TextComponent() {
-  return (
-    <Text>Open up App.js to start working on your app!</Text>
-  );
-}
+const TextComponent = () => {
+  return <Text>Open up App.js to start working on your app!</Text>;
+};
 
-export default TextComponent
+export default TextComponent;
