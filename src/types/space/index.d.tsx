@@ -11,7 +11,6 @@ export type ISpaces = {
     | "xlg"
     | "xxlg"
     | number
-    | string
     | undefined;
 };
 
@@ -28,4 +27,16 @@ export type Space = {
   pr?: ISpaces[keyof ISpaces];
   px?: ISpaces[keyof ISpaces];
   py?: ISpaces[keyof ISpaces];
+};
+
+export const spaces: ISpaces = {
+  default: 0,
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  xmd: 24,
+  xlg: 32,
+  xxlg: 64,
 };

@@ -1,7 +1,6 @@
-import { Text } from "@/core";
+import { Box, Text } from "@/core";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, View } from "react-native";
 import { ThemeProvider } from "styled-components";
 import theme from "./src/theme/theme";
 import {
@@ -9,12 +8,14 @@ import {
   Poppins_400Regular,
   Poppins_500Medium,
   Poppins_700Bold,
+  Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
+    Poppins_600SemiBold,
     Poppins_700Bold,
   });
 
@@ -24,19 +25,18 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <View style={styles.container}>
-        <Text />
-        <StatusBar style="auto" />
-      </View>
+      <Box
+        bg="red"
+        h="100px"
+        justifyContent="center"
+        alignItems="center"
+        mt={100}
+      >
+        <Text color="black" fontSize={20}>
+          Ola, mundo
+        </Text>
+      </Box>
+      <StatusBar style="auto" />
     </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

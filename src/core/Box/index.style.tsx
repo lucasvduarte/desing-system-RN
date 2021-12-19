@@ -1,17 +1,13 @@
-import { colors } from "../../colors/index";
-import styled from "styled-components/native";
-import { IText } from "./index.d";
 import { spaces } from "@/types/space/index.d";
-import { fontsSize } from "@/types/font/index.d";
+import styled from "styled-components/native";
+import { IBox } from "./index.d";
 
-const isNumber = (value: any) => {
+const isNumber = (value: unknown) => {
   return typeof value === "number";
 };
 
-const TextComponent = styled.Text<IText>`
-  color: ${({ color }) => colors[color || "black"]};
-  font-size: ${({ fontSize }) =>
-    isNumber(fontSize) ? fontSize : fontsSize[fontSize || "default"]}px;
+const Box = styled.View<IBox>`
+  background-color: ${({ bg }) => bg || "transparent"};
   margin-top: ${({ mt }) => (isNumber(mt) ? mt : spaces[mt || "default"])}px;
   margin-bottom: ${({ mb }) => (isNumber(mb) ? mb : spaces[mb || "default"])}px;
   margin-left: ${({ ml }) => (isNumber(ml) ? ml : spaces[ml || "default"])}px;
@@ -29,8 +25,16 @@ const TextComponent = styled.Text<IText>`
     isNumber(px) ? px : spaces[px || "default"]}px;
   padding-vertical: ${({ py }) =>
     isNumber(py) ? py : spaces[py || "default"]}px;
-  font-weight: ${({ fontWeight }) => fontWeight || "normal"};
-  text-align: ${({ textAlign }) => textAlign || "left"};
+  justify-content: ${({ justifyContent }) => justifyContent || "flex-start"};
+  align-items: ${({ alignItems }) => alignItems || "flex-start"};
+  align-content: ${({ alignContent }) => alignContent || "flex-start"};
+  display: flex;
+  ${({ flexD }) => (flexD ? `flex-direction: ${flexD}` : "")};
+  ${({ w }) => (w ? `width: ${w}` : "")};
+  ${({ h }) => (h ? `height: ${h}` : "")};
+  ${({ minW }) => (minW ? `min-width: ${minW}` : "")};
+  ${({ minH }) => (minH ? `min-height: ${minH}` : "")};
+  ${({ flex }) => (flex ? `flex: ${flex}` : "")};
 `;
 
-export default TextComponent;
+export default Box;
