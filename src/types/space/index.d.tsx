@@ -1,3 +1,4 @@
+type ISpaceNumber = number;
 export type ISpaces = {
   // The property will be a type of string:
   [key: string]:
@@ -10,6 +11,8 @@ export type ISpaces = {
     | "xmd"
     | "xlg"
     | "xxlg"
+    | `${ISpaceNumber}%`
+    | `${ISpaceNumber}px`
     | number
     | undefined;
 };
@@ -39,4 +42,10 @@ export const spaces: ISpaces = {
   xmd: 24,
   xlg: 32,
   xxlg: 64,
+};
+
+export const isNumberSpace = (value: ISpaces[keyof ISpaces]) => {
+  const valueAux = String(value).includes("%") || String(value).includes("px");
+  const isNumber = typeof value === "number";
+  return isNumber || valueAux ? value : `${spaces[value || "default"]}px`;
 };
