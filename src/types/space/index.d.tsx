@@ -13,39 +13,40 @@ export type ISpaces = {
     | "xxlg"
     | `${ISpaceNumber}%`
     | `${ISpaceNumber}px`
-    | number
     | undefined;
 };
 
 export type Space = {
+  m?: ISpaces[keyof ISpaces];
   mt?: ISpaces[keyof ISpaces];
   mb?: ISpaces[keyof ISpaces];
   ml?: ISpaces[keyof ISpaces];
   mr?: ISpaces[keyof ISpaces];
   mx?: ISpaces[keyof ISpaces];
   my?: ISpaces[keyof ISpaces];
+  p?: ISpaces[keyof ISpaces];
   pt?: ISpaces[keyof ISpaces];
   pb?: ISpaces[keyof ISpaces];
   pl?: ISpaces[keyof ISpaces];
   pr?: ISpaces[keyof ISpaces];
   px?: ISpaces[keyof ISpaces];
   py?: ISpaces[keyof ISpaces];
+  br?: ISpaces[keyof ISpaces];
 };
 
 export const spaces: ISpaces = {
-  default: 0,
-  xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 20,
-  xmd: 24,
-  xlg: 32,
-  xxlg: 64,
+  default: "0px",
+  xs: "4px",
+  sm: "8px",
+  md: "12px",
+  lg: "16px",
+  xl: "20px",
+  xmd: "24px",
+  xlg: "32px",
+  xxlg: "64px",
 };
 
 export const isNumberSpace = (value: ISpaces[keyof ISpaces]) => {
   const valueAux = String(value).includes("%") || String(value).includes("px");
-  const isNumber = typeof value === "number";
-  return isNumber || valueAux ? value : `${spaces[value || "default"]}px`;
+  return valueAux ? value : spaces[value || "default"];
 };

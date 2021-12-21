@@ -20,4 +20,6 @@ export type Flex = {
   minW?: string;
   minH?: string;
   flex?: number;
+  bw?: number;
+  bs?: "solid" | "dotted" | "dashed";
 };

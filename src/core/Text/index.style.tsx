@@ -12,12 +12,14 @@ const TextComponent = styled.Text<IText>`
   color: ${({ color }) => colors[color || "black"]};
   font-size: ${({ fontSize }) =>
     isNumber(fontSize) ? fontSize : fontsSize[fontSize || "default"]}px;
+  margin: ${({ m }) => isNumberSpace(m)};
   margin-top: ${({ mt }) => isNumberSpace(mt)};
   margin-bottom: ${({ mb }) => isNumberSpace(mb)};
   margin-left: ${({ ml }) => isNumberSpace(ml)};
   margin-right: ${({ mr }) => isNumberSpace(mr)};
   margin-horizontal: ${({ mx }) => isNumberSpace(mx)};
   margin-vertical: ${({ my }) => isNumberSpace(my)};
+  padding: ${({ p }) => isNumberSpace(p)};
   padding-top: ${({ pt }) => isNumberSpace(pt)};
   padding-bottom: ${({ pb }) => isNumberSpace(pb)};
   padding-left: ${({ pl }) => isNumberSpace(pl)};
