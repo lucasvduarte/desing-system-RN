@@ -17,3 +17,9 @@ export const fontsSize: ISpaces = {
   xl: 32,
   xxl: 64,
 };
+
+export const isFontSize = (value: any) => {
+  const valueAux: number =
+    typeof value === "number" ? value : fontsSize[value || "default"];
+  return `${valueAux}px`;
+};

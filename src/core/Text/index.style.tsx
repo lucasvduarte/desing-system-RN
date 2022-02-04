@@ -1,17 +1,12 @@
-import { colors } from "../../colors/index";
+import { isColor } from "../colors/index";
 import styled from "styled-components/native";
 import { IText } from "./index.d";
 import { isNumberSpace } from "@/types/space/index.d";
-import { fontsSize } from "@/types/font/index.d";
-
-const isNumber = (value: any) => {
-  return typeof value === "number";
-};
+import { isFontSize } from "@/types/font/index.d";
 
 const TextComponent = styled.Text<IText>`
-  color: ${({ color }) => colors[color || "black"]};
-  font-size: ${({ fontSize }) =>
-    isNumber(fontSize) ? fontSize : fontsSize[fontSize || "default"]}px;
+  color: ${({ color }) => isColor(color)};
+  font-size: ${({ fontSize }) => isFontSize(fontSize)};
   margin: ${({ m }) => isNumberSpace(m)};
   margin-top: ${({ mt }) => isNumberSpace(mt)};
   margin-bottom: ${({ mb }) => isNumberSpace(mb)};
@@ -32,6 +27,7 @@ const TextComponent = styled.Text<IText>`
 
 TextComponent.defaultProps = {
   textAlign: "left",
+  color: "black",
   fontWeight: "normal",
 };
 

@@ -25,18 +25,18 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <StatusBar style="auto" />
       <Box
-        bg="red"
+        bg="error"
         h="100px"
         justifyContent="center"
         alignItems="center"
-        mt={100}
+        mt="100px"
       >
-        <Text color="black" fontSize={20}>
+        <Text color="black" fontSize={22}>
           Ola, mundo
         </Text>
       </Box>
-      <StatusBar style="auto" />
     </ThemeProvider>
   );
 }

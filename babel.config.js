@@ -19,10 +19,6 @@ module.exports = function(api) {
               "rootPathSuffix": "./src/types",
               "rootPathPrefix": "@/types"
             },
-            {
-              "rootPathSuffix": "./src/colors",
-              "rootPathPrefix": "@/colors"
-            },
           ]
         }
       ]

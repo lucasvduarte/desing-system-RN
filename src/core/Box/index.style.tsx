@@ -1,9 +1,10 @@
 import { isNumberSpace } from "@/types/space/index.d";
 import styled from "styled-components/native";
 import { IBox } from "./index.d";
+import { isColor } from "../colors/index";
 
 const Box = styled.View<IBox>`
-  background-color: ${({ bg }) => bg};
+  background-color: ${({ bg }) => isColor(bg)};
   margin: ${({ m }) => isNumberSpace(m)};
   margin-top: ${({ mt }) => isNumberSpace(mt)};
   margin-bottom: ${({ mb }) => isNumberSpace(mb)};
