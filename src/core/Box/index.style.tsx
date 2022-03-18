@@ -1,25 +1,10 @@
-import { isNumberSpace } from "@/types/space/index.d";
+import { createSpaceStyle } from "@/types/space/index.d";
 import styled from "styled-components/native";
 import { IBox } from "./index.d";
 import { isColor } from "../../colors/index";
 
 const Box = styled.View<IBox>`
   background-color: ${({ bg }) => isColor(bg)};
-  margin: ${({ m }) => isNumberSpace(m)};
-  margin-top: ${({ mt }) => isNumberSpace(mt)};
-  margin-bottom: ${({ mb }) => isNumberSpace(mb)};
-  margin-left: ${({ ml }) => isNumberSpace(ml)};
-  margin-right: ${({ mr }) => isNumberSpace(mr)};
-  margin-horizontal: ${({ mx }) => isNumberSpace(mx)};
-  margin-vertical: ${({ my }) => isNumberSpace(my)};
-  padding: ${({ p }) => isNumberSpace(p)};
-  padding-top: ${({ pt }) => isNumberSpace(pt)};
-  padding-bottom: ${({ pb }) => isNumberSpace(pb)};
-  padding-left: ${({ pl }) => isNumberSpace(pl)};
-  padding-right: ${({ pr }) => isNumberSpace(pr)};
-  padding-horizontal: ${({ px }) => isNumberSpace(px)};
-  padding-vertical: ${({ py }) => isNumberSpace(py)};
-  border-radius: ${({ br }) => isNumberSpace(br)};
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
   align-content: ${({ alignContent }) => alignContent};
@@ -32,6 +17,7 @@ const Box = styled.View<IBox>`
   ${({ minW }) => (minW ? `min-width: ${minW}` : "")};
   ${({ minH }) => (minH ? `min-height: ${minH}` : "")};
   ${({ flex }) => (flex ? `flex: ${flex}` : "")};
+  ${(props) => createSpaceStyle(props)}
 `;
 
 Box.defaultProps = {

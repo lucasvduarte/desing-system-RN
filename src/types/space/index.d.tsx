@@ -34,7 +34,8 @@ export type ISpaces2 = {
     | "margin-left"
     | "margin-horizontal"
     | "margin-vertical"
-    | "margin-start";
+    | "margin-start"
+    | "border-radius";
 };
 
 export type Space = {
@@ -85,6 +86,7 @@ export const createSpaceStyle = (props: any) => {
     mx: "margin-horizontal",
     my: "margin-vertical",
     ms: "margin-start",
+    br: "border-radius",
   };
 
   const computedStyle: ISpaces = {};
@@ -93,15 +95,14 @@ export const createSpaceStyle = (props: any) => {
     const styleProperty = propKeys[propKey];
 
     if (propKey in props) {
-      computedStyle[styleProperty] = isNumberSpace(props[propKey]);
+      computedStyle[styleProperty] = getSpaceProperty(props[propKey]);
     }
   });
 
   return computedStyle;
 };
 
-//colocar depois getSpaceProperty
-export const isNumberSpace = (value: ISpaces[keyof ISpaces]) => {
+const getSpaceProperty = (value: ISpaces[keyof ISpaces]) => {
   const valueAux = String(value).includes("%") || String(value).includes("px");
   return valueAux ? value : spaces[value || "default"];
 };
