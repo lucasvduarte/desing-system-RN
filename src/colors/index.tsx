@@ -1,4 +1,4 @@
-import { IColor } from "../../types/colors/index.d";
+import { IColor } from "../types/colors/index.d";
 
 const colors: IColor = {
   black: "#000000",

@@ -16,6 +16,27 @@ export type ISpaces = {
     | undefined;
 };
 
+export type ISpaces2 = {
+  // The property will be a type of string:
+  [key: string]:
+    | "padding"
+    | "padding-top"
+    | "paddin-right"
+    | "padding-bottom"
+    | "padding-left"
+    | "padding-horizontal"
+    | "padding-vertical"
+    | "padding-start"
+    | "margin"
+    | "margin-top"
+    | "margin-right"
+    | "margin-bottom"
+    | "margin-left"
+    | "margin-horizontal"
+    | "margin-vertical"
+    | "margin-start";
+};
+
 export type Space = {
   m?: ISpaces[keyof ISpaces];
   mt?: ISpaces[keyof ISpaces];
@@ -46,6 +67,40 @@ export const spaces: ISpaces = {
   xxlg: "64px",
 };
 
+export const createSpaceStyle = (props: any) => {
+  const propKeys: ISpaces2 = {
+    p: "padding",
+    pt: "padding-top",
+    pr: "paddin-right",
+    pb: "padding-bottom",
+    pl: "padding-left",
+    px: "padding-horizontal",
+    py: "padding-vertical",
+    ps: "padding-start",
+    m: "margin",
+    mt: "margin-top",
+    mr: "margin-right",
+    mb: "margin-bottom",
+    ml: "margin-left",
+    mx: "margin-horizontal",
+    my: "margin-vertical",
+    ms: "margin-start",
+  };
+
+  const computedStyle: ISpaces = {};
+
+  Object.keys(propKeys).map((propKey: string) => {
+    const styleProperty = propKeys[propKey];
+
+    if (propKey in props) {
+      computedStyle[styleProperty] = isNumberSpace(props[propKey]);
+    }
+  });
+
+  return computedStyle;
+};
+
+//colocar depois getSpaceProperty
 export const isNumberSpace = (value: ISpaces[keyof ISpaces]) => {
   const valueAux = String(value).includes("%") || String(value).includes("px");
   return valueAux ? value : spaces[value || "default"];

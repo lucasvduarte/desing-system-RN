@@ -33,9 +33,7 @@ export default function App() {
         alignItems="center"
         mt="100px"
       >
-        <Text color="black" fontSize={22}>
-          Ola, mundo
-        </Text>
+        <Text>Ola, mundo</Text>
       </Box>
     </ThemeProvider>
   );

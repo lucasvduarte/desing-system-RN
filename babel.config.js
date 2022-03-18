@@ -12,12 +12,12 @@ module.exports = function(api) {
               "rootPathPrefix": "@/core"
             },
             {
-              "rootPathSuffix": "./src/common",
-              "rootPathPrefix": "@/common"
-            },
-            {
               "rootPathSuffix": "./src/types",
               "rootPathPrefix": "@/types"
+            },
+            {
+              "rootPathSuffix": "./src/colors",
+              "rootPathPrefix": "@/colors"
             },
           ]
         }

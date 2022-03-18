@@ -1,7 +1,7 @@
 import { isNumberSpace } from "@/types/space/index.d";
 import styled from "styled-components/native";
 import { IBox } from "./index.d";
-import { isColor } from "../colors/index";
+import { isColor } from "../../colors/index";
 
 const Box = styled.View<IBox>`
   background-color: ${({ bg }) => isColor(bg)};
