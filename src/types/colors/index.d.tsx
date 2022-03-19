@@ -1,3 +1,5 @@
+import colors from "@/colors";
+
 type IColorHex = number | string;
 type IColorRgba = number;
 
@@ -24,4 +26,10 @@ export type IColor = {
 export type IColors = {
   color?: IColor[keyof IColor];
   bg?: IColor[keyof IColor];
+};
+
+export const isColor = (value?: IColor[keyof IColor]) => {
+  const valueAux =
+    String(value).includes("#") || String(value).includes("rgba");
+  return valueAux ? value : colors[value || "transparent"];
 };

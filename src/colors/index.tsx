@@ -19,10 +19,4 @@ const colors: IColor = {
   transparent: "transparent",
 };
 
-export const isColor = (value?: IColor[keyof IColor]) => {
-  const valueAux =
-    String(value).includes("#") || String(value).includes("rgba");
-  return valueAux ? value : colors[value || "transparent"];
-};
-
 export default colors;
