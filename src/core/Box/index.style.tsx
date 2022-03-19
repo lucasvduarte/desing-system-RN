@@ -1,10 +1,9 @@
-import { isColor } from "@/types/colors/index.d";
 import { createSpaceStyle } from "@/types/space/index.d";
 import styled from "styled-components/native";
 import { IBox } from "./index.d";
 
 const Box = styled.View<IBox>`
-  background-color: ${({ bg }) => isColor(bg)};
+  background-color: ${({ bg }) => bg};
   justify-content: ${({ justifyContent }) => justifyContent};
   align-items: ${({ alignItems }) => alignItems};
   align-content: ${({ alignContent }) => alignContent};

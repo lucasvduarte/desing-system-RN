@@ -2,7 +2,6 @@ import { Box, Text } from "@/core";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import theme from "./src/theme/theme";
 import {
   useFonts,
   Poppins_400Regular,
@@ -10,6 +9,8 @@ import {
   Poppins_700Bold,
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
+import { useColorScheme } from "react-native";
+import themes from "./src/themes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,6 +20,9 @@ export default function App() {
     Poppins_700Bold,
   });
 
+  const deviceTheme = useColorScheme();
+  const theme = deviceTheme ? themes[deviceTheme] : themes.dark;
+
   if (!fontsLoaded) {
     return <></>;
   }
@@ -27,7 +31,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
       <Box
-        bg="error"
+        bg={theme.colors.primary}
         h="100px"
         justifyContent="center"
         alignItems="center"
