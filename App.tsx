@@ -13,15 +13,15 @@ import { useColorScheme } from "react-native";
 import themes from "./src/themes";
 
 export default function App() {
+  const deviceTheme = useColorScheme();
+  const theme = themes[deviceTheme || "light"];
+
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
     Poppins_600SemiBold,
     Poppins_700Bold,
   });
-
-  const deviceTheme = useColorScheme();
-  const theme = deviceTheme ? themes[deviceTheme] : themes.dark;
 
   if (!fontsLoaded) {
     return <></>;
