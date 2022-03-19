@@ -4,7 +4,7 @@ import { createSpaceStyle } from "@/types/space/index.d";
 import { isFontSize } from "@/types/font/index.d";
 
 const TextComponent = styled.Text<IText>`
-  color: ${({ color }) => color};
+  color: ${({ color, theme }) => color || theme.colors.black};
   font-size: ${({ fontSize }) => isFontSize(fontSize)};
   font-weight: ${({ fontWeight }) => fontWeight};
   text-align: ${({ textAlign }) => textAlign};
@@ -13,7 +13,6 @@ const TextComponent = styled.Text<IText>`
 
 TextComponent.defaultProps = {
   textAlign: "left",
-  color: "black",
   fontWeight: "normal",
 };
 

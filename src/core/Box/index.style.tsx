@@ -9,6 +9,7 @@ const Box = styled.View<IBox>`
   align-content: ${({ alignContent }) => alignContent};
   display: flex;
   border-width: ${({ bw }) => bw}px;
+  ${({ borderColor }) => (borderColor ? ` border-color: ${borderColor}` : "")};
   ${({ bs }) => (bs ? `border-style: ${bs}` : "")};
   ${({ flexD }) => (flexD ? `flex-direction: ${flexD}` : "")};
   ${({ w }) => (w ? `width: ${w}` : "")};
