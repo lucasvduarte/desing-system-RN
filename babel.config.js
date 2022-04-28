@@ -23,7 +23,6 @@ module.exports = function(api) {
               "rootPathSuffix": "./src/colors",
               "rootPathPrefix": "@/colors"
             },
-            ,
             {
               "rootPathSuffix": "./src/themes",
               "rootPathPrefix": "@/themes"
